@@ -1,0 +1,25 @@
+{
+  "name": "aqa-hillel-playwright",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "playwright test --project='Google Chrome'",
+    "test:headed": "playwright test --headed --project='Google Chrome",
+    "test:ui": "playwright test --ui",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "@faker-js/faker": "^10.5.0",
+    "@playwright/test": "^1.61.1",
+    "@stylistic/eslint-plugin": "^5.10.0",
+    "@types/node": "^26.0.1",
+    "eslint": "^10.6.0"
+  }
+}
