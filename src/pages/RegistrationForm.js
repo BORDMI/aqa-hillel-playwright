@@ -1,24 +1,27 @@
 import { expect } from '@playwright/test';
+import { BasePage } from './BasePage.js';
 
+const HOME_URL = '/';
 const INVALID_BORDER_COLOR = 'rgb(220, 53, 69)';
 
-export class RegistrationForm {
+export class RegistrationForm extends BasePage {
+  selectors = {
+    heading: this._page.getByRole('dialog').getByRole('heading', { name: 'Registration' }),
+    signUpButton: this._page.getByRole('button', { name: 'Sign up' }),
+    registerButton: this._page.getByRole('dialog').getByRole('button', { name: 'Register' }),
+    name: this._page.locator('#signupName'),
+    lastName: this._page.locator('#signupLastName'),
+    email: this._page.locator('#signupEmail'),
+    password: this._page.locator('#signupPassword'),
+    repeatPassword: this._page.locator('#signupRepeatPassword'),
+  };
+
   constructor(page) {
-    this._page = page;
-    this.selectors = {
-      heading: page.getByRole('dialog').getByRole('heading', { name: 'Registration' }),
-      signUpButton: page.getByRole('button', { name: 'Sign up' }),
-      registerButton: page.getByRole('dialog').getByRole('button', { name: 'Register' }),
-      name: page.locator('#signupName'),
-      lastName: page.locator('#signupLastName'),
-      email: page.locator('#signupEmail'),
-      password: page.locator('#signupPassword'),
-      repeatPassword: page.locator('#signupRepeatPassword'),
-    };
+    super(page, HOME_URL);
   }
 
   async open() {
-    await this._page.goto('/');
+    await super.open();
     await this.selectors.signUpButton.click();
     await expect(this.selectors.heading).toBeVisible();
   }

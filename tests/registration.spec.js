@@ -1,5 +1,6 @@
 import { expect, test } from '@playwright/test';
 import { RegistrationForm } from '../src/pages/RegistrationForm.js';
+import { Garage } from '../src/pages/Garage.js';
 import { User } from '../src/models/User.js';
 
 test.describe('Registration form', () => {
@@ -13,6 +14,7 @@ test.describe('Registration form', () => {
   test.describe('Positive', () => {
     test('Registers a new user with valid data', async ({ page }) => {
       const user = new User();
+      const garage = new Garage(page);
 
       await test.step('Fill the form with valid data', async () => {
         await form.fillForm(user);
@@ -24,8 +26,7 @@ test.describe('Registration form', () => {
 
       await test.step('Submit and land in the Garage', async () => {
         await form.selectors.registerButton.click();
-        await page.waitForURL('**/panel/garage');
-        await expect(page.getByRole('heading', { name: 'Garage' })).toBeVisible();
+        await garage.expectLoaded();
       });
     });
   });
