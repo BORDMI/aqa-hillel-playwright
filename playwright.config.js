@@ -33,10 +33,16 @@ export default defineConfig({
     actionTimeout: 5_000,
     navigationTimeout: 10_000,
     /* Base URL to use in actions like `await page.goto('')`. */
-    // baseURL: 'http://localhost:3000',
+    baseURL: 'https://qauto.forstudy.space',
+
+    httpCredentials: {
+      username: 'guest',
+      password: 'welcome2qauto',
+    },
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
-    trace: 'retain-on-failure',
+    trace: 'on',
+    screenshot: 'only-on-failure',
   },
 
   /* Configure projects for major browsers */
