@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "playwright test --project='Google Chrome'",
-    "test:headed": "playwright test --headed --project='Google Chrome",
+    "test:headed": "playwright test --headed --project='Google Chrome'",
+    "test:debug": "playwright test --debug --project='Google Chrome'",
     "test:ui": "playwright test --ui",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix"

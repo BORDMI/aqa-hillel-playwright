@@ -15,4 +15,10 @@ export const config = {
     username: required('HTTP_CREDENTIALS_USERNAME'),
     password: required('HTTP_CREDENTIALS_PASSWORD'),
   },
+  user: {
+    name: required('USER_NAME'),
+    lastName: required('USER_LAST_NAME'),
+    email: required('USER_EMAIL'),
+    password: required('USER_PASSWORD'),
+  },
 };

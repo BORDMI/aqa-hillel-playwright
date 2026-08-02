@@ -48,8 +48,14 @@ export default defineConfig({
     // },
 
     {
+      name: 'setup',
+      testMatch: /.*\.setup\.js/,
+    },
+
+    {
       name: 'webkit',
       use: { ...devices['Desktop Safari'] },
+      dependencies: ['setup'],
     },
 
     /* Test against mobile viewports. */
@@ -70,6 +76,7 @@ export default defineConfig({
     {
       name: 'Google Chrome',
       use: { ...devices['Desktop Chrome'], channel: 'chrome' },
+      dependencies: ['setup'],
     },
   ],
 
