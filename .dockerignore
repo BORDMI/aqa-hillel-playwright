@@ -1,0 +1,15 @@
+node_modules/
+
+.env
+
+test-results/
+playwright-report/
+blob-report/
+playwright/
+
+.git/
+.gitignore
+.idea/
+.claude/
+Dockerfile
+.dockerignore
