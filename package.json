@@ -8,6 +8,7 @@
     "test:headed": "playwright test --headed --project='Google Chrome'",
     "test:debug": "playwright test --debug --project='Google Chrome'",
     "test:ui": "playwright test --ui",
+    "test:docker": "playwright test --project=firefox",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix"
   },

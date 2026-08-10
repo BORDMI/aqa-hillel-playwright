@@ -16,7 +16,7 @@ export default defineConfig({
   /* Opt out of parallel tests on CI. */
   workers: process.env.CI ? 1 : 1,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
-  reporter: 'html',
+  reporter: [['list', { printSteps: true }], ['html']],
   /* Timeouts */
   timeout: 3 * 60_000,
   globalTimeout: 10 * 60_000,
@@ -37,16 +37,6 @@ export default defineConfig({
 
   /* Configure projects for major browsers */
   projects: [
-    // {
-    //   name: 'chromium',
-    //   use: { ...devices['Desktop Chrome'] },
-    // },
-    //
-    // {
-    //   name: 'firefox',
-    //   use: { ...devices['Desktop Firefox'] },
-    // },
-
     {
       name: 'setup',
       testMatch: /.*\.setup\.js/,
@@ -76,6 +66,17 @@ export default defineConfig({
     {
       name: 'Google Chrome',
       use: { ...devices['Desktop Chrome'], channel: 'chrome' },
+      dependencies: ['setup'],
+    },
+    {
+      name: 'chromium',
+      use: { ...devices['Desktop Chrome'] },
+      dependencies: ['setup'],
+    },
+
+    {
+      name: 'firefox',
+      use: { ...devices['Desktop Firefox'] },
       dependencies: ['setup'],
     },
   ],
